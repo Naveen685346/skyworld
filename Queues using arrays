@@ -1,0 +1,74 @@
+#include<conio.h>
+void Create();
+void Insertq();
+void Deleteq ();
+void Display();
+int q [100], front = -1, rear = -1,n,i;
+void main()                                                           \\Main program starts here
+{
+   int choice;
+   clrscr();
+    do
+    {
+      printf("\t\t\t Queue Operations \n\n");
+      printf(" 1.Create\n2. Insert\n3. Delete\n4. Display\n5. Exit");
+      printf("\nEnter your choice: ");
+      scanf("%d",&choice);
+      switch(choice){
+	 case 1:Create();break;
+                    case2:Insertq();break;
+	 case 3: Deleteq();break;
+	 case 4: Display(); break;
+	 case 5:printf(“\n\t Program Ends”);break();
+                    getch();
+	 default: printf("\n WRONG CHOICE TRY AGAIN");
+                  }
+             }
+             while(choice!=5);
+            getch();
+}
+Void Create()
+{
+   printf(“Enter the size of the queue \n”); 
+   scanf(“%d”,&n);
+   printf(“Queue Created successfully \n”);
+   getch();
+}
+void Insertq()
+{
+   int x;
+   if(rear==n)
+     {
+     Printf(“ERROR-QUEUE IS FULL\n”);
+     getch();
+      }
+     else
+      {
+        printf(“Enter the value to be inserted\n”);
+       scanf(“%d”,&x);
+       rear=rear+1;                                                           \\rear increases by 1
+      getch();
+     }
+void Deleteq()
+{
+   if(front == rear)
+     {
+        printf("\nQueue is Empty”);
+      }
+     else
+     {
+
+            printf("\nDeleted value is : %d", q[front]);
+             front=front+1;                                                      \\front increases  by 1
+   }
+}
+void Display(){
+   if(front==rear)
+      printf("\nQueue is Empty!!!");
+   else{
+  
+      printf("\nQueue elements are:\n");
+      for(i=front; i<=rear; i++)
+          printf("%d\t",queue[i]);
+   }
+}
