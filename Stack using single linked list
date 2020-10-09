@@ -1,0 +1,91 @@
+#include<stdio.h>
+#include<stdlib.h>
+void push();
+void pop();
+void display();
+struct node
+{
+	int info;
+	struct node*link;
+}	*top=NULL;        //creating a node
+ int data;
+ int main(void)
+ {
+ int ch;
+ do
+  {
+ printf("\n\n\n1.\tpush\n2.\tpop\n3.\tdisplay\n4.\texit\n");
+ printf("\nenter your choice:");
+ scanf("%d",&ch);
+ switch(ch)       //using switch statement to call the functions
+   {
+ 	case 1:
+ 		push();
+ 		break;
+ 	case 2:
+ 		pop();
+ 		break;
+ 	case 3:
+ 		display();
+ 		break;
+ 		case 4:
+ 			printf("program ends");
+ 			exit(0);
+		 default:
+ 		printf("invalid entry.please try again..\n");
+ 		
+	}	
+  }	while(ch!=4);
+  return 0;
+ }	
+ void push()
+ {
+ 	struct node*ptr;
+ 	printf("\n\nenter data");
+ 	scanf("%d",&data);
+ 	if(top=NULL)
+ 	{
+ 		top=(struct node*)malloc(sizeof(struct node));
+ 		top->info=data;
+ 		top->link=NULL;
+	 }
+	 else
+	 {
+	 	ptr=top;
+	 	top=(struct node*)malloc(sizeof(struct node));
+	 	top->info=data;
+	 	top->link=ptr;
+	 }
+	 printf("\\Data inserted:%d\n",data);
+}
+void pop()
+{
+	struct node*ptr;
+	if(top==NULL)
+	{
+	printf("\nstack is empty\n");
+    }
+	 else{
+ 		ptr=top;
+ 		data=top->info;
+		 top=top->link;
+		 free(ptr);
+		 printf("\n\nData deleted:%d",data);
+		 }
+ }
+void display()
+{
+	struct node*ptr;
+	if(top==NULL)
+	{
+		printf("\n\nstack is empty\n");
+	}
+	else{
+		ptr=top;
+		while(ptr!=NULL)
+		{
+			printf("\n\n%d",ptr->info);
+			ptr=ptr->link;
+		}
+	}
+}
